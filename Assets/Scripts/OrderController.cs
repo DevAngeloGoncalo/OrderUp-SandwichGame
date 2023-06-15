@@ -35,13 +35,7 @@ public class OrderController : MonoBehaviour
         ButtonLettuce.onClick.AddListener(AddLettuce);
         ButtonFinishOrder.onClick.AddListener(FinishOrder);
 
-        //spawner = GetComponent<Spawner>();
         ingredientSpawner = spawner.GetComponent<IngredientSpawner>();
-    }
-
-    public void SpawnIngredient(GameObject ingredientPrefab)
-    {
-        Instantiate(ingredientPrefab, transform.position, Quaternion.identity);
     }
 
     void AddHamburger100g()
@@ -75,19 +69,15 @@ public class OrderController : MonoBehaviour
 
     void FinishOrder()
     {
-        //bool correctIngredients = (hasHamburger && hasCheese && hasLettuce);
         bool correctOrder = CheckOrder();
 
-        //if (correctIngredients && correctOrder)
         if (correctOrder)
         {
             Debug.Log("Order completed successfully!");
-            // Execute any desired actions upon successful order completion
         }
         else
         {
             Debug.Log("Order is incorrect. Please check the ingredients and order.");
-            // Execute any desired actions upon incorrect order
         }
     }
 
