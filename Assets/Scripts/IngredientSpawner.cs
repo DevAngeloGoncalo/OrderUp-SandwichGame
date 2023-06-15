@@ -6,6 +6,7 @@ public class IngredientSpawner : MonoBehaviour
 {
     public void SpawnIngredient(GameObject ingredientPrefab)
     {
-        Instantiate(ingredientPrefab, transform.position, Quaternion.identity);
+        Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 0f);
+        Instantiate(ingredientPrefab, spawnPosition, Quaternion.identity);
     }
 }

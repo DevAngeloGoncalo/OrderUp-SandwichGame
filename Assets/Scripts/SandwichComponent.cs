@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SandwichComponent : MonoBehaviour
 {
-    public SandwichObject sandwichData;
+    public OrderController orderController;
     public Text nameText;
     public Image iconImage;
     public Text ingredientsText;
@@ -14,9 +14,14 @@ public class SandwichComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nameText.text = sandwichData.name;
-        iconImage.sprite = sandwichData.icon;
-        valueSandwich.text = ("$" + sandwichData.valueSandwich.ToString());
-        ingredientsText.text = string.Join("\n", sandwichData.ingredients);
+        orderController.OnSandwichSelected += HandleSandwichSelection;
+    }
+
+    public void HandleSandwichSelection(SandwichObject selectedSandwich)
+    {
+        nameText.text = selectedSandwich.name;
+        iconImage.sprite = selectedSandwich.icon;
+        valueSandwich.text = ("$" + selectedSandwich.valueSandwich.ToString());
+        ingredientsText.text = string.Join("\n", selectedSandwich.ingredients);
     }
 }

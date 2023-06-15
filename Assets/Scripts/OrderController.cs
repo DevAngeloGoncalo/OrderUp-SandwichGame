@@ -5,22 +5,33 @@ using UnityEngine.UI;
 
 public class OrderController : MonoBehaviour
 {
+    public event System.Action<SandwichObject> OnSandwichSelected;
+
     public SandwichObject sandwich;
-    //public Spawner spawner;
+    public List<SandwichObject> sandwiches;
     public GameObject spawner;
     private IngredientSpawner ingredientSpawner;
 
     public GameObject hamburger100gPrefab;
     public GameObject hamburger200gPrefab;
+    public GameObject baconPrefab;
     public GameObject cheesePrefab;
+    public GameObject whiteCheesePrefab;
     public GameObject ketchupPrefab;
+    public GameObject GreenGoddessSaucePrefab;
     public GameObject lettucePrefab;
+    public GameObject FriedOnionsPrefab;
 
     public Button ButtonHamburguer100g;
     public Button ButtonHamburguer200g;
+    public Button ButtonBacon;
     public Button ButtonCheese;
+    public Button ButtonWhiteCheese;
     public Button ButtonKetchup;
+    public Button ButtonGreenGoddessSauce;
     public Button ButtonLettuce;
+    public Button ButtonFriedOnions;
+
     public Button ButtonFinishOrder;
 
     List<string> selectedIngredients = new List<string>();
@@ -28,14 +39,28 @@ public class OrderController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         ButtonHamburguer100g.onClick.AddListener(AddHamburger100g);
         ButtonHamburguer200g.onClick.AddListener(AddHamburger200g);
+        ButtonBacon.onClick.AddListener(AddBacon);
         ButtonCheese.onClick.AddListener(AddCheese);
+        ButtonWhiteCheese.onClick.AddListener(AddWhiteCheese);
         ButtonKetchup.onClick.AddListener(AddKetchup);
+        ButtonGreenGoddessSauce.onClick.AddListener(AddGreenGoddessSauce);
         ButtonLettuce.onClick.AddListener(AddLettuce);
+        ButtonFriedOnions.onClick.AddListener(AddFriedOnions);
+
         ButtonFinishOrder.onClick.AddListener(FinishOrder);
 
         ingredientSpawner = spawner.GetComponent<IngredientSpawner>();
+
+        sandwich = GetRandomSandwich();
+    }
+
+    SandwichObject GetRandomSandwich()
+    {
+        int randomIndex = Random.Range(0, sandwiches.Count);
+        return sandwiches[randomIndex];
     }
 
     void AddHamburger100g()
@@ -49,11 +74,23 @@ public class OrderController : MonoBehaviour
         selectedIngredients.Add("Hamburger 200g");
         ingredientSpawner.SpawnIngredient(hamburger200gPrefab);
     }
+    
+    void AddBacon()
+    {
+        selectedIngredients.Add("Bacon");
+        ingredientSpawner.SpawnIngredient(baconPrefab);
+    }
 
     void AddCheese()
     {
         selectedIngredients.Add("Cheese");
         ingredientSpawner.SpawnIngredient(cheesePrefab);
+    }
+    
+    void AddWhiteCheese()
+    {
+        selectedIngredients.Add("White Cheese");
+        ingredientSpawner.SpawnIngredient(whiteCheesePrefab);
     }
 
     void AddKetchup()
@@ -61,10 +98,42 @@ public class OrderController : MonoBehaviour
         selectedIngredients.Add("Ketchup");
         ingredientSpawner.SpawnIngredient(ketchupPrefab);
     }
+    
+    void AddGreenGoddessSauce()
+    {
+        selectedIngredients.Add("Green Goddess Sauce");
+        ingredientSpawner.SpawnIngredient(GreenGoddessSaucePrefab);
+    }
+
     void AddLettuce()
     {
         selectedIngredients.Add("Lettuce");
         ingredientSpawner.SpawnIngredient(lettucePrefab);
+    }
+    
+    void AddFriedOnions()
+    {
+        selectedIngredients.Add("Fried Onions");
+        ingredientSpawner.SpawnIngredient(FriedOnionsPrefab);
+    }
+
+    bool CheckOrder()
+    {
+
+        if (selectedIngredients.Count != sandwich.ingredients.Length)
+        {
+            return false;
+        }    
+
+        for (int i = 0; i < selectedIngredients.Count; i++)
+        {
+            if (selectedIngredients[i] != sandwich.ingredients[i])
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     void FinishOrder()
@@ -79,22 +148,12 @@ public class OrderController : MonoBehaviour
         {
             Debug.Log("Order is incorrect. Please check the ingredients and order.");
         }
-    }
 
-    bool CheckOrder()
-    {
-
-        if (selectedIngredients.Count != sandwich.ingredients.Length)
-            return false;
-
-        for (int i = 0; i < selectedIngredients.Count; i++)
+        if (OnSandwichSelected != null)
         {
-            if (selectedIngredients[i] != sandwich.ingredients[i])
-            {
-                return false;
-            }
+            OnSandwichSelected(sandwich);
         }
 
-        return true;
+        sandwich = GetRandomSandwich();
     }
 }

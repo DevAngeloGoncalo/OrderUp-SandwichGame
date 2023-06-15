@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8230d6c80207ddd48b73cb2093712c39, type: 3}
-  m_Name: Cheeseburger
+  m_Name: Fried Onions Burger
   m_EditorClassIdentifier: 
-  nameSandwich: Cheeseburger
-  icon: {fileID: 21300000, guid: c576089cd1875be498fb93c82320782c, type: 3}
+  nameSandwich: Fried Onions Burger
+  icon: {fileID: 21300000, guid: b7d835b1ab290dd44928d5f5668c8e0c, type: 3}
   ingredients:
-  - Ketchup
-  - Hamburger 100g
-  - Cheese
-  valueSandwich: 10
+  - Hamgurger 200g
+  - American cheese
+  - Fried Onion
+  valueSandwich: 12

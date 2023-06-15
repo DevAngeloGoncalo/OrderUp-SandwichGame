@@ -50,3 +50,9 @@ TagManager:
   - name: Sauce
     uniqueID: 2581176793
     locked: 0
+  - name: Fried Onion
+    uniqueID: 3032175663
+    locked: 0
+  - name: Bacon
+    uniqueID: 354855491
+    locked: 0

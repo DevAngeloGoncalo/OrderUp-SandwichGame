@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8230d6c80207ddd48b73cb2093712c39, type: 3}
-  m_Name: Cheeseburger
+  m_Name: Bacon Cheeseburger
   m_EditorClassIdentifier: 
-  nameSandwich: Cheeseburger
-  icon: {fileID: 21300000, guid: c576089cd1875be498fb93c82320782c, type: 3}
+  nameSandwich: Bacon Cheeseburger
+  icon: {fileID: 21300000, guid: 52fb3ac76052d4b4a8f2272c7a261a05, type: 3}
   ingredients:
-  - Ketchup
-  - Hamburger 100g
+  - Green Goddess Sauce
+  - Hamburger 200g
   - Cheese
-  valueSandwich: 10
+  - White Cheese
+  - Bacon
+  valueSandwich: 15
