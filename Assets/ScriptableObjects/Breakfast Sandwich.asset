@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14f5db370bf4e6e458cfd1913b4e14a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8230d6c80207ddd48b73cb2093712c39, type: 3}
   m_Name: Breakfast Sandwich
   m_EditorClassIdentifier: 
-  nameIngredient: 
+  nameSandwich: 
   icon: {fileID: 0}
+  ingredients:
+  - 
+  - 
+  - 

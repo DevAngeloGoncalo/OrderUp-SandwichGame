@@ -7,5 +7,6 @@ public class SandwichObject : ScriptableObject
 {
     public string nameSandwich;
     public Sprite icon;
-    public IngredientObject[] ingredients = new IngredientObject[3];
+    public string[] ingredients = new string[3];
+    public float valueSandwich;
 }

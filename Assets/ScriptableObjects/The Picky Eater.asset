@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8230d6c80207ddd48b73cb2093712c39, type: 3}
   m_Name: The Picky Eater
   m_EditorClassIdentifier: 
-  nameSandwich: 
-  icon: {fileID: 0}
+  nameSandwich: The Picky Eater
+  icon: {fileID: 21300000, guid: c576089cd1875be498fb93c82320782c, type: 3}
   ingredients:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - Alface
+  - Cebola
+  - Queijo
+  valueSandwich: 10
