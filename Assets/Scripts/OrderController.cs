@@ -6,20 +6,20 @@ using UnityEngine.UI;
 public class OrderController : MonoBehaviour
 {
     public SandwichObject sandwich;
-    public Button hamburgerButton;
-    public Button cheeseButton;
-    public Button lettuceButton;
-    public Button finishOrderButton;
+    public Button ButtonHamburguer;
+    public Button ButtonCheese;
+    public Button ButtonLettuce;
+    public Button ButtonFinishOrder;
 
     List<string> selectedIngredients = new List<string>();
 
     // Start is called before the first frame update
     void Start()
     {
-        hamburgerButton.onClick.AddListener(AddHamburger);
-        cheeseButton.onClick.AddListener(AddCheese);
-        lettuceButton.onClick.AddListener(AddLettuce);
-        finishOrderButton.onClick.AddListener(FinishOrder);
+        ButtonHamburguer.onClick.AddListener(AddHamburger);
+        ButtonCheese.onClick.AddListener(AddCheese);
+        ButtonLettuce.onClick.AddListener(AddLettuce);
+        ButtonFinishOrder.onClick.AddListener(FinishOrder);
     }
 
     // Update is called once per frame
