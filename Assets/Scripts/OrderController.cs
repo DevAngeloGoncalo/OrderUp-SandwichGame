@@ -6,8 +6,20 @@ using UnityEngine.UI;
 public class OrderController : MonoBehaviour
 {
     public SandwichObject sandwich;
-    public Button ButtonHamburguer;
+    //public Spawner spawner;
+    public GameObject spawner;
+    private IngredientSpawner ingredientSpawner;
+
+    public GameObject hamburger100gPrefab;
+    public GameObject hamburger200gPrefab;
+    public GameObject cheesePrefab;
+    public GameObject ketchupPrefab;
+    public GameObject lettucePrefab;
+
+    public Button ButtonHamburguer100g;
+    public Button ButtonHamburguer200g;
     public Button ButtonCheese;
+    public Button ButtonKetchup;
     public Button ButtonLettuce;
     public Button ButtonFinishOrder;
 
@@ -16,31 +28,49 @@ public class OrderController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ButtonHamburguer.onClick.AddListener(AddHamburger);
+        ButtonHamburguer100g.onClick.AddListener(AddHamburger100g);
+        ButtonHamburguer200g.onClick.AddListener(AddHamburger200g);
         ButtonCheese.onClick.AddListener(AddCheese);
+        ButtonKetchup.onClick.AddListener(AddKetchup);
         ButtonLettuce.onClick.AddListener(AddLettuce);
         ButtonFinishOrder.onClick.AddListener(FinishOrder);
+
+        //spawner = GetComponent<Spawner>();
+        ingredientSpawner = spawner.GetComponent<IngredientSpawner>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnIngredient(GameObject ingredientPrefab)
     {
-        
+        Instantiate(ingredientPrefab, transform.position, Quaternion.identity);
     }
 
-    void AddHamburger()
+    void AddHamburger100g()
     {
-        selectedIngredients.Add("Hamburger");
+        selectedIngredients.Add("Hamburger 100g");
+        ingredientSpawner.SpawnIngredient(hamburger100gPrefab);
+    }
+
+    void AddHamburger200g()
+    {
+        selectedIngredients.Add("Hamburger 200g");
+        ingredientSpawner.SpawnIngredient(hamburger200gPrefab);
     }
 
     void AddCheese()
     {
         selectedIngredients.Add("Cheese");
+        ingredientSpawner.SpawnIngredient(cheesePrefab);
     }
 
+    void AddKetchup()
+    {
+        selectedIngredients.Add("Ketchup");
+        ingredientSpawner.SpawnIngredient(ketchupPrefab);
+    }
     void AddLettuce()
     {
         selectedIngredients.Add("Lettuce");
+        ingredientSpawner.SpawnIngredient(lettucePrefab);
     }
 
     void FinishOrder()
