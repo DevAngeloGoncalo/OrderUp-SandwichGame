@@ -16,6 +16,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: b7d835b1ab290dd44928d5f5668c8e0c, type: 3}
   ingredients:
   - Hamgurger 200g
-  - American cheese
+  - American Cheese
   - Fried Onion
   valueSandwich: 12

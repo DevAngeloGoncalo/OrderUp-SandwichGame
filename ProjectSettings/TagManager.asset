@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ingredient
   - CooldownButton
+  - ButtonBun
   layers:
   - Default
   - TransparentFX

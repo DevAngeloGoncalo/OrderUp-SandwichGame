@@ -36,6 +36,8 @@ public class OrderController : MonoBehaviour
 
     public Button ButtonFinishOrder;
 
+    private int sesameSeedBunClickCount = 0;
+
     public Text totalValueText;
     public float totalValue = 0f;
 
@@ -45,6 +47,7 @@ public class OrderController : MonoBehaviour
     void Start()
     {
         ButtonSesameSeedBun.onClick.AddListener(AddSesameSeedBun);
+
         ButtonHamburguer100g.onClick.AddListener(AddHamburger100g);
         ButtonHamburguer200g.onClick.AddListener(AddHamburger200g);
         ButtonBacon.onClick.AddListener(AddBacon);
@@ -82,8 +85,22 @@ public class OrderController : MonoBehaviour
 
     void AddSesameSeedBun()
     {
-        //selectedIngredients.Add("Sesame Seed Bun");
-        ingredientSpawner.SpawnIngredient(sesameSeedBunPrefab);
+
+        if (sesameSeedBunClickCount < 2)
+        {
+            //selectedIngredients.Add("Sesame Seed Bun");
+            ingredientSpawner.SpawnIngredient(sesameSeedBunPrefab);
+            sesameSeedBunClickCount++;
+
+            if (sesameSeedBunClickCount == 2)
+            {
+                ButtonSesameSeedBun.interactable = false;
+                
+            }
+        }
+        
+        //ingredientSpawner.SpawnBun(sesameSeedBunPrefab);
+        //ingredientSpawner.SpawnIngredient(sesameSeedBunPrefab);
     }
     
     void AddHamburger100g()
@@ -181,5 +198,9 @@ public class OrderController : MonoBehaviour
 
         sandwich = GetRandomSandwich();
         SelectSandwich();
+
+        ButtonSesameSeedBun.interactable = true;
+        
+        sesameSeedBunClickCount = 0;
     }
 }
