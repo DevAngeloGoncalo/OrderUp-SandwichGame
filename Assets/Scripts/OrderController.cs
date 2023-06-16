@@ -41,7 +41,6 @@ public class OrderController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         ButtonSesameSeedBun.onClick.AddListener(AddSesameSeedBun);
         ButtonHamburguer100g.onClick.AddListener(AddHamburger100g);
         ButtonHamburguer200g.onClick.AddListener(AddHamburger200g);
@@ -58,9 +57,21 @@ public class OrderController : MonoBehaviour
         ingredientSpawner = spawner.GetComponent<IngredientSpawner>();
 
         sandwich = GetRandomSandwich();
+        SelectSandwich();
+
     }
 
-    SandwichObject GetRandomSandwich()
+    void SelectSandwich()
+    {
+        sandwich = GetRandomSandwich();
+
+        if (OnSandwichSelected != null)
+        {
+            OnSandwichSelected(sandwich);
+        }
+    }
+
+    public SandwichObject GetRandomSandwich()
     {
         int randomIndex = Random.Range(0, sandwiches.Count);
         return sandwiches[randomIndex];
@@ -68,7 +79,7 @@ public class OrderController : MonoBehaviour
 
     void AddSesameSeedBun()
     {
-        selectedIngredients.Add("Sesame Seed Bun");
+        //selectedIngredients.Add("Sesame Seed Bun");
         ingredientSpawner.SpawnIngredient(sesameSeedBunPrefab);
     }
     
@@ -158,15 +169,11 @@ public class OrderController : MonoBehaviour
             Debug.Log("Order is incorrect. Please check the ingredients and order.");
         }
 
-        if (OnSandwichSelected != null)
-        {
-            OnSandwichSelected(sandwich);
-        }
-
         ingredientSpawner.DestroyAllIngredients();
         ingredientSpawner.ResetIngredientCount();
         selectedIngredients.Clear();
 
         sandwich = GetRandomSandwich();
+        SelectSandwich();
     }
 }

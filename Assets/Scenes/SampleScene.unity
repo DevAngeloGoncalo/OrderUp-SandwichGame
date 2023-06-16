@@ -3474,7 +3474,7 @@ MonoBehaviour:
   americanCheesePrefab: {fileID: 3096380937522345499, guid: 5046f157b5e7607448aaeb6fb515a979, type: 3}
   ketchupPrefab: {fileID: 1967093178862827411, guid: 629369d487bf3e34294670bcc2258b6b, type: 3}
   greenGoddessSaucePrefab: {fileID: 604072927559973030, guid: d2de3972abc9d8c44823c77d09b93100, type: 3}
-  lettucePrefab: {fileID: 0}
+  lettucePrefab: {fileID: 3096380937522345499, guid: 5046f157b5e7607448aaeb6fb515a979, type: 3}
   friedOnionsPrefab: {fileID: 3857615672818627971, guid: 5ef161fb2fc73684798ae3e9017d9f2d, type: 3}
   ButtonSesameSeedBun: {fileID: 700669214}
   ButtonHamburguer100g: {fileID: 480555256}

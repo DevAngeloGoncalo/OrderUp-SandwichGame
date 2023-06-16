@@ -15,6 +15,8 @@ public class SandwichComponent : MonoBehaviour
     void Start()
     {
         orderController.OnSandwichSelected += HandleSandwichSelection;
+        HandleSandwichSelection(orderController.GetRandomSandwich());
+
     }
 
     public void HandleSandwichSelection(SandwichObject selectedSandwich)
