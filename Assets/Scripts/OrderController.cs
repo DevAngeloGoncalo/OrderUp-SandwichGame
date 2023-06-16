@@ -153,6 +153,7 @@ public class OrderController : MonoBehaviour
         {
             OnSandwichSelected(sandwich);
         }
+        ingredientSpawner.DestroyAllIngredients();
 
         sandwich = GetRandomSandwich();
     }
