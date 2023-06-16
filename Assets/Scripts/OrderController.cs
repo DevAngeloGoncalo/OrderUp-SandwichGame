@@ -17,7 +17,7 @@ public class OrderController : MonoBehaviour
     public GameObject hamburger200gPrefab;
     public GameObject baconPrefab;
     public GameObject cheesePrefab;
-    public GameObject whiteCheesePrefab;
+    public GameObject americanCheesePrefab;
     public GameObject ketchupPrefab;
     public GameObject greenGoddessSaucePrefab;
     public GameObject lettucePrefab;
@@ -28,7 +28,7 @@ public class OrderController : MonoBehaviour
     public Button ButtonHamburguer200g;
     public Button ButtonBacon;
     public Button ButtonCheese;
-    public Button ButtonWhiteCheese;
+    public Button ButtonAmericanCheese;
     public Button ButtonKetchup;
     public Button ButtonGreenGoddessSauce;
     public Button ButtonLettuce;
@@ -47,7 +47,7 @@ public class OrderController : MonoBehaviour
         ButtonHamburguer200g.onClick.AddListener(AddHamburger200g);
         ButtonBacon.onClick.AddListener(AddBacon);
         ButtonCheese.onClick.AddListener(AddCheese);
-        ButtonWhiteCheese.onClick.AddListener(AddWhiteCheese);
+        ButtonAmericanCheese.onClick.AddListener(AddAmericanCheesePrefabe);
         ButtonKetchup.onClick.AddListener(AddKetchup);
         ButtonGreenGoddessSauce.onClick.AddListener(AddGreenGoddessSauce);
         ButtonLettuce.onClick.AddListener(AddLettuce);
@@ -96,10 +96,10 @@ public class OrderController : MonoBehaviour
         ingredientSpawner.SpawnIngredient(cheesePrefab);
     }
     
-    void AddWhiteCheese()
+    void AddAmericanCheesePrefabe()
     {
-        selectedIngredients.Add("White Cheese");
-        ingredientSpawner.SpawnIngredient(whiteCheesePrefab);
+        selectedIngredients.Add("American Cheese");
+        ingredientSpawner.SpawnIngredient(americanCheesePrefab);
     }
 
     void AddKetchup()
@@ -165,6 +165,7 @@ public class OrderController : MonoBehaviour
 
         ingredientSpawner.DestroyAllIngredients();
         ingredientSpawner.ResetIngredientCount();
+        selectedIngredients.Clear();
 
         sandwich = GetRandomSandwich();
     }
