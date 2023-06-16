@@ -9,7 +9,6 @@ public class IngredientSpawner : MonoBehaviour
     
     public int ingredientLimit = 7;
     private int ingredientCount = 0;
-    private int countSpawn = 0;
 
     public void SpawnIngredient(GameObject ingredientPrefab)
     {
@@ -24,21 +23,6 @@ public class IngredientSpawner : MonoBehaviour
 
         ingredientCount++;
     }
-
-    //public void SpawnBun(GameObject ingredientPrefab)
-    //{
-        
-    //    if (countSpawn >= 2)
-    //    {
-    //        Debug.Log("Limite atingido.");
-    //        return;
-    //    }
-
-    //    Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 0f);
-    //    Instantiate(ingredientPrefab, spawnPosition, Quaternion.identity);
-
-    //    countSpawn++;
-    //}
 
     public void DestroyAllIngredients()
     {
