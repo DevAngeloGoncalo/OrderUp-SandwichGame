@@ -21,7 +21,7 @@ public class OrderController : MonoBehaviour
     public GameObject ketchupPrefab;
     public GameObject greenGoddessSaucePrefab;
     public GameObject lettucePrefab;
-    public GameObject friedOnionsPrefab;
+    public GameObject friedOnionPrefab;
 
     public Button ButtonSesameSeedBun;
     public Button ButtonHamburguer100g;
@@ -32,9 +32,12 @@ public class OrderController : MonoBehaviour
     public Button ButtonKetchup;
     public Button ButtonGreenGoddessSauce;
     public Button ButtonLettuce;
-    public Button ButtonFriedOnions;
+    public Button ButtonFriedOnion;
 
     public Button ButtonFinishOrder;
+
+    public Text totalValueText;
+    public float totalValue = 0f;
 
     List<string> selectedIngredients = new List<string>();
 
@@ -50,7 +53,7 @@ public class OrderController : MonoBehaviour
         ButtonKetchup.onClick.AddListener(AddKetchup);
         ButtonGreenGoddessSauce.onClick.AddListener(AddGreenGoddessSauce);
         ButtonLettuce.onClick.AddListener(AddLettuce);
-        ButtonFriedOnions.onClick.AddListener(AddFriedOnions);
+        ButtonFriedOnion.onClick.AddListener(AddFriedOnion);
 
         ButtonFinishOrder.onClick.AddListener(FinishOrder);
 
@@ -131,10 +134,10 @@ public class OrderController : MonoBehaviour
         ingredientSpawner.SpawnIngredient(lettucePrefab);
     }
     
-    void AddFriedOnions()
+    void AddFriedOnion()
     {
-        selectedIngredients.Add("Fried Onions");
-        ingredientSpawner.SpawnIngredient(friedOnionsPrefab);
+        selectedIngredients.Add("Fried Onion");
+        ingredientSpawner.SpawnIngredient(friedOnionPrefab);
     }
 
     bool CheckOrder()
@@ -162,7 +165,10 @@ public class OrderController : MonoBehaviour
 
         if (correctOrder)
         {
-            Debug.Log("Order completed successfully!");
+            float sandwichValue = sandwich.valueSandwich;
+            totalValue += sandwichValue;
+            Debug.Log("Order completed successfully! Total value: $" + totalValue);
+            totalValueText.text = "$ " + totalValue;
         }
         else
         {
