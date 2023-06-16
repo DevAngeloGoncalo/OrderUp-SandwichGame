@@ -7,7 +7,6 @@ public class ButtonCooldown : MonoBehaviour
     public string cooldownButtonTag = "CooldownButton";
     public float cooldownTime = 1.0f;  
 
-    private float lastClickTime;
     private bool isCooldownActive;
 
     private void Awake()
@@ -28,9 +27,6 @@ public class ButtonCooldown : MonoBehaviour
         {
             return;
         }
-
-        // Atualiza o momento do último clique
-        lastClickTime = Time.time;
 
         StartCoroutine(StartCooldown());
     }

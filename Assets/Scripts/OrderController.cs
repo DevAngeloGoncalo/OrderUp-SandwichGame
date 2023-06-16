@@ -12,16 +12,18 @@ public class OrderController : MonoBehaviour
     public GameObject spawner;
     private IngredientSpawner ingredientSpawner;
 
+    public GameObject sesameSeedBunPrefab;
     public GameObject hamburger100gPrefab;
     public GameObject hamburger200gPrefab;
     public GameObject baconPrefab;
     public GameObject cheesePrefab;
     public GameObject whiteCheesePrefab;
     public GameObject ketchupPrefab;
-    public GameObject GreenGoddessSaucePrefab;
+    public GameObject greenGoddessSaucePrefab;
     public GameObject lettucePrefab;
-    public GameObject FriedOnionsPrefab;
+    public GameObject friedOnionsPrefab;
 
+    public Button ButtonSesameSeedBun;
     public Button ButtonHamburguer100g;
     public Button ButtonHamburguer200g;
     public Button ButtonBacon;
@@ -40,6 +42,7 @@ public class OrderController : MonoBehaviour
     void Start()
     {
 
+        ButtonSesameSeedBun.onClick.AddListener(AddSesameSeedBun);
         ButtonHamburguer100g.onClick.AddListener(AddHamburger100g);
         ButtonHamburguer200g.onClick.AddListener(AddHamburger200g);
         ButtonBacon.onClick.AddListener(AddBacon);
@@ -63,6 +66,12 @@ public class OrderController : MonoBehaviour
         return sandwiches[randomIndex];
     }
 
+    void AddSesameSeedBun()
+    {
+        selectedIngredients.Add("Sesame Seed Bun");
+        ingredientSpawner.SpawnIngredient(sesameSeedBunPrefab);
+    }
+    
     void AddHamburger100g()
     {
         selectedIngredients.Add("Hamburger 100g");
@@ -102,7 +111,7 @@ public class OrderController : MonoBehaviour
     void AddGreenGoddessSauce()
     {
         selectedIngredients.Add("Green Goddess Sauce");
-        ingredientSpawner.SpawnIngredient(GreenGoddessSaucePrefab);
+        ingredientSpawner.SpawnIngredient(greenGoddessSaucePrefab);
     }
 
     void AddLettuce()
@@ -114,7 +123,7 @@ public class OrderController : MonoBehaviour
     void AddFriedOnions()
     {
         selectedIngredients.Add("Fried Onions");
-        ingredientSpawner.SpawnIngredient(FriedOnionsPrefab);
+        ingredientSpawner.SpawnIngredient(friedOnionsPrefab);
     }
 
     bool CheckOrder()
@@ -153,7 +162,9 @@ public class OrderController : MonoBehaviour
         {
             OnSandwichSelected(sandwich);
         }
+
         ingredientSpawner.DestroyAllIngredients();
+        ingredientSpawner.ResetIngredientCount();
 
         sandwich = GetRandomSandwich();
     }
