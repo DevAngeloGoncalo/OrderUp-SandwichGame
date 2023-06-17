@@ -31,23 +31,6 @@ public class ButtonController : MonoBehaviour
         DisableCooldownButtons();
     }
 
-    public void DisableCooldownButtons()
-    {
-        GameObject[] cooldownButtons = GameObject.FindGameObjectsWithTag(cooldownButtonTag);
-
-        foreach (GameObject buttonObject in cooldownButtons)
-        {
-            Button button = buttonObject.GetComponent<Button>();
-            if (button != null)
-            {
-                button.interactable = false;
-                ColorBlock colors = button.colors;
-                colors.disabledColor = new Color(0.5f, 0.5f, 0.5f); // Define a cor mais escura para os botões desativados
-                button.colors = colors;
-            }
-        }
-    }
-
     public void OnButtonClick()
     {
         if (isCooldownActive)
@@ -78,6 +61,28 @@ public class ButtonController : MonoBehaviour
         }
     }
 
+    public void DisableFinishButton()
+    {
+        
+    }
+
+    public void DisableCooldownButtons()
+    {
+        GameObject[] cooldownButtons = GameObject.FindGameObjectsWithTag(cooldownButtonTag);
+
+        foreach (GameObject buttonObject in cooldownButtons)
+        {
+            Button button = buttonObject.GetComponent<Button>();
+            if (button != null)
+            {
+                button.interactable = false;
+                ColorBlock colors = button.colors;
+                colors.disabledColor = new Color(0.5f, 0.5f, 0.5f); // Define a cor mais escura para os botões desativados
+                button.colors = colors;
+            }
+        }
+    }
+
     private void ApplyCooldownToButtons()
     {
         GameObject[] cooldownButtons = GameObject.FindGameObjectsWithTag(cooldownButtonTag);
@@ -97,7 +102,6 @@ public class ButtonController : MonoBehaviour
         StartCoroutine(StartCooldown());
     }
         
-
     private IEnumerator StartCooldown()
     {
         GameObject[] cooldownButtons = GameObject.FindGameObjectsWithTag(cooldownButtonTag);
