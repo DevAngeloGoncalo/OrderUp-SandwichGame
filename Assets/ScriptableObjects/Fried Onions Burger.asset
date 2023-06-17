@@ -15,7 +15,7 @@ MonoBehaviour:
   nameSandwich: Fried Onions Burger
   icon: {fileID: 21300000, guid: b7d835b1ab290dd44928d5f5668c8e0c, type: 3}
   ingredients:
-  - Hamgurger 200g
+  - Hamburger 200g
   - American Cheese
   - Fried Onion
   valueSandwich: 12

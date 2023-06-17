@@ -11,6 +11,7 @@ public class OrderController : MonoBehaviour
     public List<SandwichObject> sandwiches;
     public GameObject spawner;
     private IngredientSpawner ingredientSpawner;
+    private ButtonController buttonController;
 
     public GameObject sesameSeedBunPrefab;
     public GameObject bottomBunPrefab;
@@ -41,13 +42,20 @@ public class OrderController : MonoBehaviour
     public Text totalValueText;
     public float totalValue = 0f;
 
-    private bool isFirstBun = true;
+    public bool isFirstBun = true;
 
     List<string> selectedIngredients = new List<string>();
 
     // Start is called before the first frame update
     void Start()
     {
+        
+        buttonController = FindObjectOfType<ButtonController>();
+        if (buttonController == null)
+        {
+            Debug.LogError("OrderController not found in the scene!");
+        }
+
         ButtonSesameSeedBun.onClick.AddListener(AddSesameSeedBun);
 
         ButtonHamburguer100g.onClick.AddListener(AddHamburger100g);
@@ -89,12 +97,10 @@ public class OrderController : MonoBehaviour
     {
         if (isFirstBun)
         {
-            selectedIngredients.Add("Bottom Bun");
             ingredientSpawner.SpawnIngredient(bottomBunPrefab);
         }
         else
         {
-            selectedIngredients.Add("Top Bun");
             ingredientSpawner.SpawnIngredient(topBunPrefab);
             ButtonSesameSeedBun.interactable = false;
         }
@@ -200,5 +206,6 @@ public class OrderController : MonoBehaviour
 
         ButtonSesameSeedBun.interactable = true;
         isFirstBun = true;
+        buttonController.DisableCooldownButtons();
     }
 }
