@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ButtonController : MonoBehaviour
 {
+    public OrderController orderController;
     public string cooldownButtonTag = "CooldownButton";
     public string finishButtonTag = "ButtonFinish";
     public float cooldownTime = 1.0f;
