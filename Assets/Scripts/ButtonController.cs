@@ -5,13 +5,13 @@ using UnityEngine.UI;
 public class ButtonController : MonoBehaviour
 {
     public string cooldownButtonTag = "CooldownButton";
-    public float cooldownTime = 1.0f;  
+    public float cooldownTime = 1.0f;
+    private int countButtonBunClick = 0;
 
     private bool isCooldownActive;
 
     private void Awake()
     {
-
         GameObject[] buttons = GameObject.FindGameObjectsWithTag(cooldownButtonTag);
         foreach (GameObject button in buttons)
         {
@@ -25,7 +25,7 @@ public class ButtonController : MonoBehaviour
         Button buttonBun = GameObject.FindGameObjectWithTag("ButtonBun").GetComponent<Button>();
         if (buttonBun != null)
         {
-            buttonBun.onClick.AddListener(OnButtonClick);
+            buttonBun.onClick.AddListener(OnButtonBunClick);
         }
 
         DisableCooldownButtons();
@@ -56,6 +56,26 @@ public class ButtonController : MonoBehaviour
         }
 
         ApplyCooldownToButtons();
+    }
+    
+    public void OnButtonBunClick()
+    {
+        countButtonBunClick++;
+
+        if (isCooldownActive)
+        {
+            return;
+        }
+
+        if (countButtonBunClick == 2)
+        {
+            DisableCooldownButtons();
+            countButtonBunClick = 0;
+        }
+        else
+        {
+            ApplyCooldownToButtons();
+        }
     }
 
     private void ApplyCooldownToButtons()
