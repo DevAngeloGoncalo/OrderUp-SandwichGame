@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ButtonController : MonoBehaviour
 {
     public string cooldownButtonTag = "CooldownButton";
+    public string finishButtonTag = "ButtonFinish";
     public float cooldownTime = 1.0f;
     private int countButtonBunClick = 0;
 
@@ -29,6 +30,7 @@ public class ButtonController : MonoBehaviour
         }
 
         DisableCooldownButtons();
+        DisableButtonFinish();
     }
 
     public void OnButtonClick()
@@ -40,30 +42,50 @@ public class ButtonController : MonoBehaviour
 
         ApplyCooldownToButtons();
     }
-    
-    public void OnButtonBunClick()
+
+    public void DisableButtonFinish()
     {
-        countButtonBunClick++;
-
-        if (isCooldownActive)
+        GameObject finishButtonObject = GameObject.FindGameObjectWithTag(finishButtonTag);
+        if (finishButtonObject != null)
         {
-            return;
-        }
-
-        if (countButtonBunClick == 2)
-        {
-            DisableCooldownButtons();
-            countButtonBunClick = 0;
-        }
-        else
-        {
-            ApplyCooldownToButtons();
+            Button finishButton = finishButtonObject.GetComponent<Button>();
+            if (finishButton != null)
+            {
+                finishButton.interactable = false;
+            }
         }
     }
 
-    public void DisableFinishButton()
+    public void OnButtonBunClick()
     {
-        
+        GameObject finishButtonObject = GameObject.FindGameObjectWithTag(finishButtonTag);
+        if (finishButtonObject != null)
+        {
+            Button finishButton = finishButtonObject.GetComponent<Button>();
+            if (finishButton != null)
+            {
+                countButtonBunClick++;
+
+                if (isCooldownActive)
+                {
+                    return;
+                }
+
+                if (countButtonBunClick == 2)
+                {
+                    DisableCooldownButtons();
+                    countButtonBunClick = 0;
+                    finishButton.interactable = true;
+
+                }
+                else
+                {
+                    ApplyCooldownToButtons();
+                    finishButton.interactable = false;
+
+                }
+            }
+        }
     }
 
     public void DisableCooldownButtons()

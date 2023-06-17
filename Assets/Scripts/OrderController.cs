@@ -184,17 +184,19 @@ public class OrderController : MonoBehaviour
     void FinishOrder()
     {
         bool correctOrder = CheckOrder();
+        float sandwichValue = sandwich.valueSandwich;
 
         if (correctOrder)
         {
-            float sandwichValue = sandwich.valueSandwich;
             totalValue += sandwichValue;
             Debug.Log("Order completed successfully! Total value: $" + totalValue);
             totalValueText.text = "$ " + totalValue;
         }
         else
         {
+            totalValue -= sandwichValue;
             Debug.Log("Order is incorrect. Please check the ingredients and order.");
+            totalValueText.text = "$ " + totalValue;
         }
 
         ingredientSpawner.DestroyAllIngredients();
@@ -207,5 +209,6 @@ public class OrderController : MonoBehaviour
         ButtonSesameSeedBun.interactable = true;
         isFirstBun = true;
         buttonController.DisableCooldownButtons();
+        buttonController.DisableButtonFinish();
     }
 }
