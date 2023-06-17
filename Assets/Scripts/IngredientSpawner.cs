@@ -7,30 +7,41 @@ public class IngredientSpawner : MonoBehaviour
     public GameObject ingredientPrefab;
     public Transform spawnPoint;
     
-    public int ingredientLimit = 7;
+    public int ingredientLimit = 5;
     private int ingredientCount = 0;
 
     public void SpawnIngredient(GameObject ingredientPrefab)
     {
-        if (ingredientCount >= ingredientLimit)
+        if (ingredientCount <= ingredientLimit)
+        {
+            Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 0f);
+            GameObject ingredient = Instantiate(ingredientPrefab, spawnPosition, Quaternion.identity);
+
+            if (ingredient.CompareTag("Ingredient"))
+            {
+                ingredientCount++;
+            }
+        }
+        else
         {
             Debug.Log("Limite de ingredientes alcançado!");
             return;
         }
-
-        Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 0f);
-        Instantiate(ingredientPrefab, spawnPosition, Quaternion.identity);
-
-        ingredientCount++;
     }
 
     public void DestroyAllIngredients()
     {
         GameObject[] ingredients = GameObject.FindGameObjectsWithTag("Ingredient");
+        GameObject[] buns = GameObject.FindGameObjectsWithTag("Bun");
 
         foreach (GameObject ingredient in ingredients)
         {
             Destroy(ingredient);
+        }
+
+        foreach (GameObject bun in buns)
+        {
+            Destroy(bun);
         }
     }
 

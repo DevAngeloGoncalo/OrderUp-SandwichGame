@@ -13,6 +13,8 @@ public class OrderController : MonoBehaviour
     private IngredientSpawner ingredientSpawner;
 
     public GameObject sesameSeedBunPrefab;
+    public GameObject bottomBunPrefab;
+    public GameObject topBunPrefab;
     public GameObject hamburger100gPrefab;
     public GameObject hamburger200gPrefab;
     public GameObject baconPrefab;
@@ -36,10 +38,10 @@ public class OrderController : MonoBehaviour
 
     public Button ButtonFinishOrder;
 
-    private int sesameSeedBunClickCount = 0;
-
     public Text totalValueText;
     public float totalValue = 0f;
+
+    private bool isFirstBun = true;
 
     List<string> selectedIngredients = new List<string>();
 
@@ -85,22 +87,19 @@ public class OrderController : MonoBehaviour
 
     void AddSesameSeedBun()
     {
-
-        if (sesameSeedBunClickCount < 2)
+        if (isFirstBun)
         {
-            //selectedIngredients.Add("Sesame Seed Bun");
-            ingredientSpawner.SpawnIngredient(sesameSeedBunPrefab);
-            sesameSeedBunClickCount++;
-
-            if (sesameSeedBunClickCount == 2)
-            {
-                ButtonSesameSeedBun.interactable = false;
-                
-            }
+            selectedIngredients.Add("Bottom Bun");
+            ingredientSpawner.SpawnIngredient(bottomBunPrefab);
         }
-        
-        //ingredientSpawner.SpawnBun(sesameSeedBunPrefab);
-        //ingredientSpawner.SpawnIngredient(sesameSeedBunPrefab);
+        else
+        {
+            selectedIngredients.Add("Top Bun");
+            ingredientSpawner.SpawnIngredient(topBunPrefab);
+            ButtonSesameSeedBun.interactable = false;
+        }
+
+        isFirstBun = !isFirstBun;
     }
     
     void AddHamburger100g()
@@ -200,7 +199,6 @@ public class OrderController : MonoBehaviour
         SelectSandwich();
 
         ButtonSesameSeedBun.interactable = true;
-        
-        sesameSeedBunClickCount = 0;
+        isFirstBun = true;
     }
 }
