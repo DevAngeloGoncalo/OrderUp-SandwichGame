@@ -28,6 +28,8 @@ public class ButtonController : MonoBehaviour
 
     private void Start()
     {
+        buttonFinishOrder.interactable = false;
+
         buttonSesameSeedBun.onClick.AddListener(OnButtonBunClick);
         buttonHamburger100g.onClick.AddListener(orderController.AddHamburger100g);
         buttonHamburger200g.onClick.AddListener(orderController.AddHamburger200g);
@@ -50,7 +52,7 @@ public class ButtonController : MonoBehaviour
                 buttonComponent.onClick.AddListener(OnButtonClick);
             }
         }
-
+        
         DisableCooldownButtons();
     }
 

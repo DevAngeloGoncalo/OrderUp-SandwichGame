@@ -6,18 +6,16 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-   
+    public GameObject hotbar;
+
     public float countdownTime = 3f; // Tempo da contagem regressiva em segundos
     public Text countdownText; // Referência ao objeto Text onde o texto da contagem regressiva será exibido
-
-    private bool canStartScene; // Flag para indicar se a cena pode ser iniciada
-
 
     // Start is called before the first frame update
     void Start()
     {
-        canStartScene = false;
-        StartCoroutine(StartCountdown());
+        hotbar.SetActive(false);
+        StartCoroutine(StartCountdownToStartTheScene());
     }
 
     // Update is called once per frame
@@ -26,7 +24,7 @@ public class UIController : MonoBehaviour
            
     }
 
-    private IEnumerator StartCountdown()
+    private IEnumerator StartCountdownToStartTheScene()
     {
         float currentTime = countdownTime;
 
@@ -40,20 +38,19 @@ public class UIController : MonoBehaviour
         }
 
         // Quando a contagem regressiva terminar, permite iniciar a cena
-        canStartScene = true;
         countdownText.text = "GO!";
 
         // Aguarda por mais 1 segundo antes de remover o texto da contagem regressiva
         yield return new WaitForSeconds(1f);
         countdownText.gameObject.SetActive(false);
+        hotbar.SetActive(true);
     }
 
     public void StartScene()
     {
-        if (canStartScene)
-        {
-            // Inicia a cena
-            SceneManager.LoadScene("SampleScene"); // Substitua "NomeDaCena" pelo nome da sua cena
-        }
+
+        // Inicia a cena
+        SceneManager.LoadScene("SampleScene"); // Substitua "NomeDaCena" pelo nome da sua cena
+        
     }
 }
