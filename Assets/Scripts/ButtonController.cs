@@ -26,7 +26,7 @@ public class ButtonController : MonoBehaviour
 
     private bool isCooldownActive;
 
-    private void Awake()
+    private void Start()
     {
         buttonSesameSeedBun.onClick.AddListener(OnButtonBunClick);
         buttonHamburger100g.onClick.AddListener(orderController.AddHamburger100g);
@@ -52,6 +52,11 @@ public class ButtonController : MonoBehaviour
         }
 
         DisableCooldownButtons();
+    }
+
+    private void Awake()
+    {
+        
         
     }
 

@@ -12,9 +12,9 @@ public class IngredientSpawner : MonoBehaviour
 
     public void SpawnIngredient(GameObject ingredientPrefab)
     {
+        Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 0f);
         if (ingredientCount <= ingredientLimit)
-        {
-            Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 0f);
+        {  
             GameObject ingredient = Instantiate(ingredientPrefab, spawnPosition, Quaternion.identity);
 
             if (ingredient.CompareTag("Ingredient"))
@@ -24,6 +24,10 @@ public class IngredientSpawner : MonoBehaviour
         }
         else
         {
+            if (ingredientPrefab.CompareTag("Bun"))
+            {
+                GameObject ingredient = Instantiate(ingredientPrefab, spawnPosition, Quaternion.identity);
+            }
             Debug.Log("Limite de ingredientes alcançado!");
             return;
         }
