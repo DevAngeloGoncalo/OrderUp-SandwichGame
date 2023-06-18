@@ -18,13 +18,17 @@ public class OrderController : MonoBehaviour
     public GameObject topBunPrefab;
     public GameObject hamburger100gPrefab;
     public GameObject hamburger200gPrefab;
+    public GameObject shrimpBurgerPrefab;
     public GameObject baconPrefab;
+    public GameObject baconSlicePrefab;
     public GameObject cheesePrefab;
     public GameObject americanCheesePrefab;
     public GameObject coleslawSaucePrefab;
     public GameObject barbecueSaucePrefab;
     public GameObject ketchupPrefab;
+    public GameObject caramelizedOnionsPrefab;
     public GameObject greenGoddessSaucePrefab;
+    public GameObject spicyMayoSaucePrefab;
     public GameObject redCabbagePrefab;
     public GameObject friedOnionPrefab;
 
@@ -86,11 +90,23 @@ public class OrderController : MonoBehaviour
         selectedIngredients.Add("Hamburger 200g");
         ingredientSpawner.SpawnIngredient(hamburger200gPrefab);
     }
+    
+    public void AddShrimpBurger()
+    {
+        selectedIngredients.Add("Shrimp Burger");
+        ingredientSpawner.SpawnIngredient(shrimpBurgerPrefab);
+    }
 
     public void AddBacon()
     {
         selectedIngredients.Add("Bacon");
         ingredientSpawner.SpawnIngredient(baconPrefab);
+    }
+    
+    public void AddBaconSlice()
+    {
+        selectedIngredients.Add("Bacon Slice");
+        ingredientSpawner.SpawnIngredient(baconSlicePrefab);
     }
 
     public void AddCheese()
@@ -122,14 +138,26 @@ public class OrderController : MonoBehaviour
         selectedIngredients.Add("Ketchup");
         ingredientSpawner.SpawnIngredient(ketchupPrefab);
     }
+    
+    public void AddCaramelizedOnions()
+    {
+        selectedIngredients.Add("Caramelized Onions");
+        ingredientSpawner.SpawnIngredient(caramelizedOnionsPrefab);
+    }
 
     public void AddGreenGoddessSauce()
     {
         selectedIngredients.Add("Green Goddess Sauce");
         ingredientSpawner.SpawnIngredient(greenGoddessSaucePrefab);
     }
+    
+    public void AddSpicyMayoSauce()
+    {
+        selectedIngredients.Add("Spicy Mayo Sauce");
+        ingredientSpawner.SpawnIngredient(spicyMayoSaucePrefab);
+    }
 
-    public void AddLettuce()
+    public void AddRedCabbage()
     {
         selectedIngredients.Add("Red Cabbage");
         ingredientSpawner.SpawnIngredient(redCabbagePrefab);

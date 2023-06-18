@@ -9,13 +9,17 @@ public class ButtonController : MonoBehaviour
     public Button buttonSesameSeedBun;
     public Button buttonHamburger100g;
     public Button buttonHamburger200g;
+    public Button buttonShrimpBurger;
     public Button buttonBacon;
+    public Button buttonBaconSlice;
     public Button buttonCheese;
     public Button buttonAmericanCheese;
     public Button buttonColeslawSauce;
     public Button buttonBarbecueSauce;
     public Button buttonKetchup;
+    public Button buttonCaramelizedOnions;
     public Button buttonGreenGoddessSauce;
+    public Button buttonSpicyMayoSauce;
     public Button buttonRedCabbage;
     public Button buttonFriedOnion;
 
@@ -41,14 +45,18 @@ public class ButtonController : MonoBehaviour
         buttonSesameSeedBun.onClick.AddListener(OnButtonBunClick);
         buttonHamburger100g.onClick.AddListener(orderController.AddHamburger100g);
         buttonHamburger200g.onClick.AddListener(orderController.AddHamburger200g);
+        buttonShrimpBurger.onClick.AddListener(orderController.AddShrimpBurger);
         buttonBacon.onClick.AddListener(orderController.AddBacon);
+        buttonBaconSlice.onClick.AddListener(orderController.AddBaconSlice);
         buttonCheese.onClick.AddListener(orderController.AddCheese);
         buttonAmericanCheese.onClick.AddListener(orderController.AddAmericanCheesePrefabe);
         buttonColeslawSauce.onClick.AddListener(orderController.AddColeslawSaucePrefabe);
         buttonBarbecueSauce.onClick.AddListener(orderController.AddBarbecueSaucePrefabe);
         buttonKetchup.onClick.AddListener(orderController.AddKetchup);
+        buttonCaramelizedOnions.onClick.AddListener(orderController.AddCaramelizedOnions);
         buttonGreenGoddessSauce.onClick.AddListener(orderController.AddGreenGoddessSauce);
-        buttonRedCabbage.onClick.AddListener(orderController.AddLettuce);
+        buttonSpicyMayoSauce.onClick.AddListener(orderController.AddSpicyMayoSauce);
+        buttonRedCabbage.onClick.AddListener(orderController.AddRedCabbage);
         buttonFriedOnion.onClick.AddListener(orderController.AddFriedOnion);
 
         buttonFinishOrder.onClick.AddListener(FinishOrder);
