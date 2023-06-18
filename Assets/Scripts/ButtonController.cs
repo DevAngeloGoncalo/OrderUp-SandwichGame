@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ButtonController : MonoBehaviour
 {
     public OrderController orderController;
+    public UIController uiController;
 
     public Button buttonSesameSeedBun;
     public Button buttonHamburger100g;
@@ -24,6 +25,8 @@ public class ButtonController : MonoBehaviour
     public Button buttonFriedOnion;
 
     public Button buttonFinishOrder;
+    public Button buttonRestartGame;
+    public Button buttonExitGame;
 
     public string cooldownButtonTag = "CooldownButton";
     public string finishButtonTag = "ButtonFinish";
@@ -60,6 +63,8 @@ public class ButtonController : MonoBehaviour
         buttonFriedOnion.onClick.AddListener(orderController.AddFriedOnion);
 
         buttonFinishOrder.onClick.AddListener(FinishOrder);
+        buttonRestartGame.onClick.AddListener(uiController.StartScene);
+        buttonExitGame.onClick.AddListener(uiController.ExitGame);
 
         GameObject[] buttons = GameObject.FindGameObjectsWithTag(cooldownButtonTag);
         foreach (GameObject button in buttons)
