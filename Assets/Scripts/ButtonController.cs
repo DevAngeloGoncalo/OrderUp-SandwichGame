@@ -5,6 +5,20 @@ using UnityEngine.UI;
 public class ButtonController : MonoBehaviour
 {
     public OrderController orderController;
+
+    public Button buttonSesameSeedBun;
+    public Button buttonHamburger100g;
+    public Button buttonHamburger200g;
+    public Button buttonBacon;
+    public Button buttonCheese;
+    public Button buttonAmericanCheese;
+    public Button buttonKetchup;
+    public Button buttonGreenGoddessSauce;
+    public Button buttonLettuce;
+    public Button buttonFriedOnion;
+
+    public Button buttonFinishOrder;
+
     public string cooldownButtonTag = "CooldownButton";
     public string finishButtonTag = "ButtonFinish";
     public float cooldownTime = 1.0f;
@@ -14,6 +28,19 @@ public class ButtonController : MonoBehaviour
 
     private void Awake()
     {
+        buttonSesameSeedBun.onClick.AddListener(OnButtonBunClick);
+        buttonHamburger100g.onClick.AddListener(orderController.AddHamburger100g);
+        buttonHamburger200g.onClick.AddListener(orderController.AddHamburger200g);
+        buttonBacon.onClick.AddListener(orderController.AddBacon);
+        buttonCheese.onClick.AddListener(orderController.AddCheese);
+        buttonAmericanCheese.onClick.AddListener(orderController.AddAmericanCheesePrefabe);
+        buttonKetchup.onClick.AddListener(orderController.AddKetchup);
+        buttonGreenGoddessSauce.onClick.AddListener(orderController.AddGreenGoddessSauce);
+        buttonLettuce.onClick.AddListener(orderController.AddLettuce);
+        buttonFriedOnion.onClick.AddListener(orderController.AddFriedOnion);
+
+        buttonFinishOrder.onClick.AddListener(FinishOrder);
+
         GameObject[] buttons = GameObject.FindGameObjectsWithTag(cooldownButtonTag);
         foreach (GameObject button in buttons)
         {
@@ -24,14 +51,17 @@ public class ButtonController : MonoBehaviour
             }
         }
 
-        Button buttonBun = GameObject.FindGameObjectWithTag("ButtonBun").GetComponent<Button>();
-        if (buttonBun != null)
-        {
-            buttonBun.onClick.AddListener(OnButtonBunClick);
-        }
-
         DisableCooldownButtons();
-        DisableButtonFinish();
+        
+    }
+
+    void FinishOrder()
+    {
+
+        orderController.FinishOrder();
+        DisableCooldownButtons();
+        buttonFinishOrder.interactable = false;
+        buttonSesameSeedBun.interactable = true;
     }
 
     public void OnButtonClick()
@@ -44,49 +74,30 @@ public class ButtonController : MonoBehaviour
         ApplyCooldownToButtons();
     }
 
-    public void DisableButtonFinish()
-    {
-        GameObject finishButtonObject = GameObject.FindGameObjectWithTag(finishButtonTag);
-        if (finishButtonObject != null)
-        {
-            Button finishButton = finishButtonObject.GetComponent<Button>();
-            if (finishButton != null)
-            {
-                finishButton.interactable = false;
-            }
-        }
-    }
-
     public void OnButtonBunClick()
     {
-        GameObject finishButtonObject = GameObject.FindGameObjectWithTag(finishButtonTag);
-        if (finishButtonObject != null)
+        countButtonBunClick++;
+
+        if (isCooldownActive)
         {
-            Button finishButton = finishButtonObject.GetComponent<Button>();
-            if (finishButton != null)
-            {
-                countButtonBunClick++;
-
-                if (isCooldownActive)
-                {
-                    return;
-                }
-
-                if (countButtonBunClick == 2)
-                {
-                    DisableCooldownButtons();
-                    countButtonBunClick = 0;
-                    finishButton.interactable = true;
-
-                }
-                else
-                {
-                    ApplyCooldownToButtons();
-                    finishButton.interactable = false;
-
-                }
-            }
+            return;
         }
+
+        if (countButtonBunClick == 2)
+        {
+            DisableCooldownButtons();
+            countButtonBunClick = 0;
+            buttonFinishOrder.interactable = true;
+            buttonSesameSeedBun.interactable = false;
+
+        }
+        else
+        {
+            ApplyCooldownToButtons();
+            buttonFinishOrder.interactable = false;
+
+        }
+        orderController.AddSesameSeedBun();
     }
 
     public void DisableCooldownButtons()

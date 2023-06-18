@@ -2964,17 +2964,6 @@ MonoBehaviour:
   greenGoddessSaucePrefab: {fileID: 604072927559973030, guid: d2de3972abc9d8c44823c77d09b93100, type: 3}
   lettucePrefab: {fileID: 3096380937522345499, guid: 5046f157b5e7607448aaeb6fb515a979, type: 3}
   friedOnionPrefab: {fileID: 3857615672818627971, guid: 5ef161fb2fc73684798ae3e9017d9f2d, type: 3}
-  ButtonSesameSeedBun: {fileID: 700669214}
-  ButtonHamburguer100g: {fileID: 480555256}
-  ButtonHamburguer200g: {fileID: 1556006502}
-  ButtonBacon: {fileID: 1944861783}
-  ButtonCheese: {fileID: 1534227868}
-  ButtonAmericanCheese: {fileID: 1751612816}
-  ButtonKetchup: {fileID: 644086966}
-  ButtonGreenGoddessSauce: {fileID: 15485581}
-  ButtonLettuce: {fileID: 898741935}
-  ButtonFriedOnion: {fileID: 393914443}
-  ButtonFinishOrder: {fileID: 1989860900}
   totalValueText: {fileID: 2074965713}
   totalValue: 0
   isFirstBun: 1
@@ -3082,6 +3071,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90a4c1b65c7ee3448939243d7638ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonSesameSeedBun: {fileID: 700669214}
+  buttonHamburger100g: {fileID: 480555256}
+  buttonHamburger200g: {fileID: 1556006502}
+  buttonBacon: {fileID: 1944861783}
+  buttonCheese: {fileID: 1534227868}
+  buttonAmericanCheese: {fileID: 1751612816}
+  buttonKetchup: {fileID: 644086966}
+  buttonGreenGoddessSauce: {fileID: 15485581}
+  buttonLettuce: {fileID: 898741935}
+  buttonFriedOnion: {fileID: 393914443}
+  buttonFinishOrder: {fileID: 1989860900}
+  orderController: {fileID: 1269915065}
   cooldownButtonTag: CooldownButton
   finishButtonTag: ButtonFinish
   cooldownTime: 1

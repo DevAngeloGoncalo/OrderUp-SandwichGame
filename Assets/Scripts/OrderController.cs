@@ -10,8 +10,8 @@ public class OrderController : MonoBehaviour
     public SandwichObject sandwich;
     public List<SandwichObject> sandwiches;
     public GameObject spawner;
+
     private IngredientSpawner ingredientSpawner;
-    private ButtonController buttonController;
 
     public GameObject sesameSeedBunPrefab;
     public GameObject bottomBunPrefab;
@@ -26,19 +26,6 @@ public class OrderController : MonoBehaviour
     public GameObject lettucePrefab;
     public GameObject friedOnionPrefab;
 
-    public Button ButtonSesameSeedBun;
-    public Button ButtonHamburguer100g;
-    public Button ButtonHamburguer200g;
-    public Button ButtonBacon;
-    public Button ButtonCheese;
-    public Button ButtonAmericanCheese;
-    public Button ButtonKetchup;
-    public Button ButtonGreenGoddessSauce;
-    public Button ButtonLettuce;
-    public Button ButtonFriedOnion;
-
-    public Button ButtonFinishOrder;
-
     public Text totalValueText;
     public float totalValue = 0f;
 
@@ -49,27 +36,6 @@ public class OrderController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        buttonController = FindObjectOfType<ButtonController>();
-        if (buttonController == null)
-        {
-            Debug.LogError("OrderController not found in the scene!");
-        }
-
-        ButtonSesameSeedBun.onClick.AddListener(AddSesameSeedBun);
-
-        ButtonHamburguer100g.onClick.AddListener(AddHamburger100g);
-        ButtonHamburguer200g.onClick.AddListener(AddHamburger200g);
-        ButtonBacon.onClick.AddListener(AddBacon);
-        ButtonCheese.onClick.AddListener(AddCheese);
-        ButtonAmericanCheese.onClick.AddListener(AddAmericanCheesePrefabe);
-        ButtonKetchup.onClick.AddListener(AddKetchup);
-        ButtonGreenGoddessSauce.onClick.AddListener(AddGreenGoddessSauce);
-        ButtonLettuce.onClick.AddListener(AddLettuce);
-        ButtonFriedOnion.onClick.AddListener(AddFriedOnion);
-
-        ButtonFinishOrder.onClick.AddListener(FinishOrder);
-
         ingredientSpawner = spawner.GetComponent<IngredientSpawner>();
 
         sandwich = GetRandomSandwich();
@@ -93,7 +59,7 @@ public class OrderController : MonoBehaviour
         return sandwiches[randomIndex];
     }
 
-    void AddSesameSeedBun()
+    public void AddSesameSeedBun()
     {
         if (isFirstBun)
         {
@@ -102,61 +68,60 @@ public class OrderController : MonoBehaviour
         else
         {
             ingredientSpawner.SpawnIngredient(topBunPrefab);
-            ButtonSesameSeedBun.interactable = false;
         }
 
         isFirstBun = !isFirstBun;
     }
-    
-    void AddHamburger100g()
+
+    public void AddHamburger100g()
     {
         selectedIngredients.Add("Hamburger 100g");
         ingredientSpawner.SpawnIngredient(hamburger100gPrefab);
     }
 
-    void AddHamburger200g()
+    public void AddHamburger200g()
     {
         selectedIngredients.Add("Hamburger 200g");
         ingredientSpawner.SpawnIngredient(hamburger200gPrefab);
     }
-    
-    void AddBacon()
+
+    public void AddBacon()
     {
         selectedIngredients.Add("Bacon");
         ingredientSpawner.SpawnIngredient(baconPrefab);
     }
 
-    void AddCheese()
+    public void AddCheese()
     {
         selectedIngredients.Add("Cheese");
         ingredientSpawner.SpawnIngredient(cheesePrefab);
     }
-    
-    void AddAmericanCheesePrefabe()
+
+    public void AddAmericanCheesePrefabe()
     {
         selectedIngredients.Add("American Cheese");
         ingredientSpawner.SpawnIngredient(americanCheesePrefab);
     }
 
-    void AddKetchup()
+    public void AddKetchup()
     {
         selectedIngredients.Add("Ketchup");
         ingredientSpawner.SpawnIngredient(ketchupPrefab);
     }
-    
-    void AddGreenGoddessSauce()
+
+    public void AddGreenGoddessSauce()
     {
         selectedIngredients.Add("Green Goddess Sauce");
         ingredientSpawner.SpawnIngredient(greenGoddessSaucePrefab);
     }
 
-    void AddLettuce()
+    public void AddLettuce()
     {
         selectedIngredients.Add("Lettuce");
         ingredientSpawner.SpawnIngredient(lettucePrefab);
     }
-    
-    void AddFriedOnion()
+
+    public void AddFriedOnion()
     {
         selectedIngredients.Add("Fried Onion");
         ingredientSpawner.SpawnIngredient(friedOnionPrefab);
@@ -181,7 +146,7 @@ public class OrderController : MonoBehaviour
         return true;
     }
 
-    void FinishOrder()
+    public void FinishOrder()
     {
         bool correctOrder = CheckOrder();
         float sandwichValue = sandwich.valueSandwich;
@@ -189,14 +154,14 @@ public class OrderController : MonoBehaviour
         if (correctOrder)
         {
             totalValue += sandwichValue;
-            Debug.Log("Order completed successfully! Total value: $" + totalValue);
-            totalValueText.text = "$ " + totalValue;
+            Debug.Log("Order completed successfully! Total value: $" + totalValue.ToString("F2"));
+            totalValueText.text = "$ " + totalValue.ToString("F2");
         }
         else
         {
             totalValue -= sandwichValue;
             Debug.Log("Order is incorrect. Please check the ingredients and order.");
-            totalValueText.text = "$ " + totalValue;
+            totalValueText.text = "$ " + totalValue.ToString("F2");
         }
 
         ingredientSpawner.DestroyAllIngredients();
@@ -206,9 +171,6 @@ public class OrderController : MonoBehaviour
         sandwich = GetRandomSandwich();
         SelectSandwich();
 
-        ButtonSesameSeedBun.interactable = true;
         isFirstBun = true;
-        buttonController.DisableCooldownButtons();
-        buttonController.DisableButtonFinish();
     }
 }
