@@ -12,9 +12,11 @@ public class ButtonController : MonoBehaviour
     public Button buttonBacon;
     public Button buttonCheese;
     public Button buttonAmericanCheese;
+    public Button buttonColeslawSauce;
+    public Button buttonBarbecueSauce;
     public Button buttonKetchup;
     public Button buttonGreenGoddessSauce;
-    public Button buttonLettuce;
+    public Button buttonRedCabbage;
     public Button buttonFriedOnion;
 
     public Button buttonFinishOrder;
@@ -28,6 +30,12 @@ public class ButtonController : MonoBehaviour
 
     private void Start()
     {
+       
+    }
+
+    //Deve estar no Awake, para que o CD funcione corretamente
+    private void Awake()
+    {
         buttonFinishOrder.interactable = false;
 
         buttonSesameSeedBun.onClick.AddListener(OnButtonBunClick);
@@ -36,9 +44,11 @@ public class ButtonController : MonoBehaviour
         buttonBacon.onClick.AddListener(orderController.AddBacon);
         buttonCheese.onClick.AddListener(orderController.AddCheese);
         buttonAmericanCheese.onClick.AddListener(orderController.AddAmericanCheesePrefabe);
+        buttonColeslawSauce.onClick.AddListener(orderController.AddColeslawSaucePrefabe);
+        buttonBarbecueSauce.onClick.AddListener(orderController.AddBarbecueSaucePrefabe);
         buttonKetchup.onClick.AddListener(orderController.AddKetchup);
         buttonGreenGoddessSauce.onClick.AddListener(orderController.AddGreenGoddessSauce);
-        buttonLettuce.onClick.AddListener(orderController.AddLettuce);
+        buttonRedCabbage.onClick.AddListener(orderController.AddLettuce);
         buttonFriedOnion.onClick.AddListener(orderController.AddFriedOnion);
 
         buttonFinishOrder.onClick.AddListener(FinishOrder);
@@ -52,14 +62,9 @@ public class ButtonController : MonoBehaviour
                 buttonComponent.onClick.AddListener(OnButtonClick);
             }
         }
-        
-        DisableCooldownButtons();
-    }
 
-    private void Awake()
-    {
-        
-        
+        DisableCooldownButtons();
+
     }
 
     void FinishOrder()

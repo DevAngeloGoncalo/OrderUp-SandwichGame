@@ -21,9 +21,11 @@ public class OrderController : MonoBehaviour
     public GameObject baconPrefab;
     public GameObject cheesePrefab;
     public GameObject americanCheesePrefab;
+    public GameObject coleslawSaucePrefab;
+    public GameObject barbecueSaucePrefab;
     public GameObject ketchupPrefab;
     public GameObject greenGoddessSaucePrefab;
-    public GameObject lettucePrefab;
+    public GameObject redCabbagePrefab;
     public GameObject friedOnionPrefab;
 
     public Text totalValueText;
@@ -102,6 +104,18 @@ public class OrderController : MonoBehaviour
         selectedIngredients.Add("American Cheese");
         ingredientSpawner.SpawnIngredient(americanCheesePrefab);
     }
+    
+    public void AddColeslawSaucePrefabe()
+    {
+        selectedIngredients.Add("Coleslaw Sauce");
+        ingredientSpawner.SpawnIngredient(coleslawSaucePrefab);
+    }
+    
+    public void AddBarbecueSaucePrefabe()
+    {
+        selectedIngredients.Add("Barbecue Sauce");
+        ingredientSpawner.SpawnIngredient(barbecueSaucePrefab);
+    }
 
     public void AddKetchup()
     {
@@ -117,8 +131,8 @@ public class OrderController : MonoBehaviour
 
     public void AddLettuce()
     {
-        selectedIngredients.Add("Lettuce");
-        ingredientSpawner.SpawnIngredient(lettucePrefab);
+        selectedIngredients.Add("Red Cabbage");
+        ingredientSpawner.SpawnIngredient(redCabbagePrefab);
     }
 
     public void AddFriedOnion()
