@@ -59,9 +59,9 @@ public class ButtonController : MonoBehaviour
         buttonBacon.onClick.AddListener(orderController.AddBacon);
         buttonBaconSlice.onClick.AddListener(orderController.AddBaconSlice);
         buttonCheese.onClick.AddListener(orderController.AddCheese);
-        buttonAmericanCheese.onClick.AddListener(orderController.AddAmericanCheesePrefabe);
-        buttonColeslawSauce.onClick.AddListener(orderController.AddColeslawSaucePrefabe);
-        buttonBarbecueSauce.onClick.AddListener(orderController.AddBarbecueSaucePrefabe);
+        buttonAmericanCheese.onClick.AddListener(orderController.AddAmericanCheese);
+        buttonColeslawSauce.onClick.AddListener(orderController.AddColeslawSauce);
+        buttonBarbecueSauce.onClick.AddListener(orderController.AddBarbecueSauce);
         buttonKetchup.onClick.AddListener(orderController.AddKetchup);
         buttonCaramelizedOnions.onClick.AddListener(orderController.AddCaramelizedOnions);
         buttonGreenGoddessSauce.onClick.AddListener(orderController.AddGreenGoddessSauce);
