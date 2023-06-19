@@ -24,6 +24,7 @@ public class ButtonController : MonoBehaviour
     public Button buttonRedCabbage;
     public Button buttonFriedOnion;
 
+    public Button buttonCloseInstructions;
     public Button buttonFinishOrder;
     public Button buttonRestartGame;
     public Button buttonExitGame;
@@ -62,6 +63,7 @@ public class ButtonController : MonoBehaviour
         buttonRedCabbage.onClick.AddListener(orderController.AddRedCabbage);
         buttonFriedOnion.onClick.AddListener(orderController.AddFriedOnion);
 
+        buttonCloseInstructions.onClick.AddListener(uiController.CloseInstructions);
         buttonFinishOrder.onClick.AddListener(FinishOrder);
         buttonRestartGame.onClick.AddListener(uiController.StartScene);
         buttonExitGame.onClick.AddListener(uiController.ExitGame);

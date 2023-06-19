@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
     public OrderController orderController;
 
     public GameObject hotbar;
-    public GameObject endScreen;
+    public GameObject endScreen, instructionScreen;
     public GameObject arrowIndicator;
 
     public float countdownTimeToStart = 3f; // Tempo da contagem regressiva em segundos
@@ -23,7 +23,6 @@ public class UIController : MonoBehaviour
     {
         arrowIndicator.SetActive(true);
         hotbar.SetActive(false);
-        StartCoroutine(StartCountdownToStartTheScene());
     }
 
     // Update is called once per frame
@@ -90,5 +89,11 @@ public class UIController : MonoBehaviour
 
         SceneManager.LoadScene("MainScene"); 
         
+    }
+
+    public void CloseInstructions()
+    {
+        instructionScreen.SetActive(false);
+        StartCoroutine(StartCountdownToStartTheScene());
     }
 }
