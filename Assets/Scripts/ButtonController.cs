@@ -35,6 +35,7 @@ public class ButtonController : MonoBehaviour
     public Button buttonCloseInstructions;
     public Button buttonFinishOrder;
     public Button buttonRestartGame;
+    public Button buttonMenu;
     public Button buttonExitGame;
 
     [SerializeField]
@@ -78,6 +79,7 @@ public class ButtonController : MonoBehaviour
         buttonCloseInstructions.onClick.AddListener(uiController.CloseInstructions);
         buttonFinishOrder.onClick.AddListener(FinishOrder);
         buttonRestartGame.onClick.AddListener(uiController.StartScene);
+        buttonMenu.onClick.AddListener(uiController.LoadScene);
         buttonExitGame.onClick.AddListener(uiController.ExitGame);
 
         // Encontre os botões com a tag "CooldownButton" e adicione os listeners

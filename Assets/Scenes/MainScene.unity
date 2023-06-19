@@ -482,6 +482,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1551994571, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2076618705, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3858742334909563676, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -505,10 +513,6 @@ PrefabInstance:
     - target: {fileID: 3858742334909563676, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3858742334948657067, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
-      propertyPath: m_Text
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3858742335101764293, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -890,17 +894,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3858742336521681943, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
+    - target: {fileID: 3858742336521681962, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: timerToEnd
+      value: 120
       objectReference: {fileID: 0}
-    - target: {fileID: 3858742336521681943, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 3858742336521681943, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
+    - target: {fileID: 3858742336521681962, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: countdownTimeToStart
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3858742336596825856, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_AnchorMax.y

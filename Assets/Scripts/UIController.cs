@@ -103,8 +103,16 @@ public class UIController : MonoBehaviour
     // Inicia a cena do jogo
     public void StartScene()
     {
-        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
+        //buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         SceneManager.LoadScene("MainScene"); 
+        
+    }
+    
+    // Carrega o menu
+    public void LoadScene()
+    {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
+        SceneManager.LoadScene("MainMenu"); 
         
     }
 
