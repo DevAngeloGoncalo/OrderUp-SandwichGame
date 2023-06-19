@@ -17,12 +17,14 @@ public class UIController : MonoBehaviour
     public Text countdownToStartText; // Referência ao objeto Text onde o texto da contagem regressiva será exibido
     public Text countdownToEndText; // Referência ao objeto Text onde o texto da contagem regressiva será exibido
     public Text scoreText;
+    public Text errorText;
 
     // Start is called before the first frame update
     void Start()
     {
         arrowIndicator.SetActive(true);
         hotbar.SetActive(false);
+        errorText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -95,5 +97,23 @@ public class UIController : MonoBehaviour
     {
         instructionScreen.SetActive(false);
         StartCoroutine(StartCountdownToStartTheScene());
+    }
+
+    public void ShowErrorMessage(string message)
+    {
+        
+        errorText.text = message;
+        errorText.gameObject.SetActive(true);
+
+        
+        StartCoroutine(HideErrorMessage());
+    }
+
+    private IEnumerator HideErrorMessage()
+    {
+        yield return new WaitForSeconds(2f);
+
+        // Hide the error text
+        errorText.gameObject.SetActive(false);
     }
 }

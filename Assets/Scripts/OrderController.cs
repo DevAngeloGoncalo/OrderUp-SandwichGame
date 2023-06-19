@@ -12,6 +12,7 @@ public class OrderController : MonoBehaviour
     public GameObject spawner;
 
     private IngredientSpawner ingredientSpawner;
+    public UIController uiController;
 
     public GameObject sesameSeedBunPrefab;
     public GameObject bottomBunPrefab;
@@ -174,6 +175,7 @@ public class OrderController : MonoBehaviour
 
         if (selectedIngredients.Count != sandwich.ingredients.Length)
         {
+            uiController.ShowErrorMessage("Incorrect quantity of ingredients.");
             return false;
         }    
 
@@ -181,6 +183,7 @@ public class OrderController : MonoBehaviour
         {
             if (selectedIngredients[i] != sandwich.ingredients[i])
             {
+                uiController.ShowErrorMessage("Incorrect ingredients");
                 return false;
             }
         }
