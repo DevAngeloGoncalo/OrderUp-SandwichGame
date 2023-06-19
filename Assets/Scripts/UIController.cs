@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     public OrderController orderController;
+    public ButtonController buttonController;
 
     public GameObject hotbar;
     public GameObject endScreen, instructionScreen;
@@ -83,18 +84,20 @@ public class UIController : MonoBehaviour
 
     public void ExitGame()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         Application.Quit();
     }
 
     public void StartScene()
     {
-
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         SceneManager.LoadScene("MainScene"); 
         
     }
 
     public void CloseInstructions()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         instructionScreen.SetActive(false);
         StartCoroutine(StartCountdownToStartTheScene());
     }

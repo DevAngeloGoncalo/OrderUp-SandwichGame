@@ -13,6 +13,7 @@ public class OrderController : MonoBehaviour
 
     private IngredientSpawner ingredientSpawner;
     public UIController uiController;
+    public ButtonController buttonController;
 
     public GameObject sesameSeedBunPrefab;
     public GameObject bottomBunPrefab;
@@ -82,90 +83,105 @@ public class OrderController : MonoBehaviour
 
     public void AddHamburger100g()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Hamburger 100g");
         ingredientSpawner.SpawnIngredient(hamburger100gPrefab);
     }
 
     public void AddHamburger200g()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Hamburger 200g");
         ingredientSpawner.SpawnIngredient(hamburger200gPrefab);
     }
     
     public void AddShrimpBurger()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Shrimp Burger");
         ingredientSpawner.SpawnIngredient(shrimpBurgerPrefab);
     }
 
     public void AddBacon()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Bacon");
         ingredientSpawner.SpawnIngredient(baconPrefab);
     }
     
     public void AddBaconSlice()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Bacon Slice");
         ingredientSpawner.SpawnIngredient(baconSlicePrefab);
     }
 
     public void AddCheese()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Cheese");
         ingredientSpawner.SpawnIngredient(cheesePrefab);
     }
 
     public void AddAmericanCheesePrefabe()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("American Cheese");
         ingredientSpawner.SpawnIngredient(americanCheesePrefab);
     }
     
     public void AddColeslawSaucePrefabe()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Coleslaw Sauce");
         ingredientSpawner.SpawnIngredient(coleslawSaucePrefab);
     }
     
     public void AddBarbecueSaucePrefabe()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Barbecue Sauce");
         ingredientSpawner.SpawnIngredient(barbecueSaucePrefab);
     }
 
     public void AddKetchup()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Ketchup");
         ingredientSpawner.SpawnIngredient(ketchupPrefab);
     }
     
     public void AddCaramelizedOnions()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Caramelized Onions");
         ingredientSpawner.SpawnIngredient(caramelizedOnionsPrefab);
     }
 
     public void AddGreenGoddessSauce()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Green Goddess Sauce");
         ingredientSpawner.SpawnIngredient(greenGoddessSaucePrefab);
     }
     
     public void AddSpicyMayoSauce()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Spicy Mayo Sauce");
         ingredientSpawner.SpawnIngredient(spicyMayoSaucePrefab);
     }
 
     public void AddRedCabbage()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Red Cabbage");
         ingredientSpawner.SpawnIngredient(redCabbagePrefab);
     }
 
     public void AddFriedOnion()
     {
+        buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         selectedIngredients.Add("Fried Onion");
         ingredientSpawner.SpawnIngredient(friedOnionPrefab);
     }

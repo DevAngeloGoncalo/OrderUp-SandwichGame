@@ -7,6 +7,9 @@ public class ButtonController : MonoBehaviour
     public OrderController orderController;
     public UIController uiController;
 
+    public AudioSource audioSource;
+    public AudioClip buttonSound;
+
     public Button buttonSesameSeedBun;
     public Button buttonHamburger100g;
     public Button buttonHamburger200g;
@@ -44,6 +47,9 @@ public class ButtonController : MonoBehaviour
     //Deve estar no Awake, para que o CD funcione corretamente
     private void Awake()
     {
+        // Obtenha a referência do componente AudioSource
+        audioSource = GetComponent<AudioSource>();
+
         buttonFinishOrder.interactable = false;
 
         buttonSesameSeedBun.onClick.AddListener(OnButtonBunClick);
@@ -84,6 +90,8 @@ public class ButtonController : MonoBehaviour
 
     void FinishOrder()
     {
+        // Reproduza o som do botão
+        audioSource.PlayOneShot(buttonSound);
 
         orderController.FinishOrder();
         DisableCooldownButtons();
@@ -103,6 +111,9 @@ public class ButtonController : MonoBehaviour
 
     public void OnButtonBunClick()
     {
+        // Reproduza o som do botão
+        audioSource.PlayOneShot(buttonSound);
+
         countButtonBunClick++;
 
         if (isCooldownActive)

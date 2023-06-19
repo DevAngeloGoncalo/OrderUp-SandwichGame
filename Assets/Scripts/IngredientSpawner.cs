@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class IngredientSpawner : MonoBehaviour
 {
+    public UIController uiController;
     public GameObject ingredientPrefab;
     public Transform spawnPoint;
     
@@ -28,6 +29,7 @@ public class IngredientSpawner : MonoBehaviour
             {
                 GameObject ingredient = Instantiate(ingredientPrefab, spawnPosition, Quaternion.identity);
             }
+            uiController.ShowErrorMessage("Ingredient limit reached!");
             Debug.Log("Limite de ingredientes alcançado!");
             return;
         }
