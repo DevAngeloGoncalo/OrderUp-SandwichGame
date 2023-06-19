@@ -1524,6 +1524,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1343926291}
     - target: {fileID: 3858742335648984679, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: cooldownTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858742335648984679, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: uiController
       value: 
       objectReference: {fileID: 274770774}
