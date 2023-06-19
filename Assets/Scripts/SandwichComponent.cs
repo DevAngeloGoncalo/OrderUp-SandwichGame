@@ -27,6 +27,6 @@ public class SandwichComponent : MonoBehaviour
         nameText.text = selectedSandwich.name;
         iconImage.sprite = selectedSandwich.icon;
         valueSandwich.text = ("$" + selectedSandwich.valueSandwich.ToString());
-        ingredientsText.text = string.Join(";\n", selectedSandwich.ingredients);
+        ingredientsText.text = string.Join(";\n", selectedSandwich.ingredients) + ";";
     }
 }
