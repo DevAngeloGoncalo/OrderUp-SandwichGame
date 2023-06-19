@@ -1323,6 +1323,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 323
       objectReference: {fileID: 0}
+    - target: {fileID: 3858742334782439961, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 71.50632
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858742334782439961, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25.858099
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858742334782439966, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858742334782439966, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858742334883189650, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 88.16425
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858742334883189650, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3858742334909563676, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1347,6 +1371,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3858742334948657066, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 19.49355
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858742334948657066, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 30.9
+      objectReference: {fileID: 0}
     - target: {fileID: 3858742335101764293, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1370,6 +1402,14 @@ PrefabInstance:
     - target: {fileID: 3858742335101764293, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858742335269254189, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 104.4512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858742335269254189, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 91.0983
       objectReference: {fileID: 0}
     - target: {fileID: 3858742335321246417, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1422,6 +1462,14 @@ PrefabInstance:
     - target: {fileID: 3858742335389512725, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858742335416408648, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858742335416408651, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -19.500004
       objectReference: {fileID: 0}
     - target: {fileID: 3858742335434733871, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1558,6 +1606,10 @@ PrefabInstance:
     - target: {fileID: 3858742336152707671, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858742336300766634, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.1
       objectReference: {fileID: 0}
     - target: {fileID: 3858742336328835595, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1757,7 +1809,7 @@ PrefabInstance:
       objectReference: {fileID: 1793871879}
     - target: {fileID: 3858742336521681962, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: timerToEnd
-      value: 20
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3858742336521681962, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: orderController
