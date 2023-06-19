@@ -61,3 +61,6 @@ TagManager:
   - name: Bacon
     uniqueID: 354855491
     locked: 0
+  - name: Furniture
+    uniqueID: 313578449
+    locked: 0

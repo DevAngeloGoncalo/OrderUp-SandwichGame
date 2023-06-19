@@ -30,7 +30,7 @@ public class ButtonController : MonoBehaviour
 
     public string cooldownButtonTag = "CooldownButton";
     public string finishButtonTag = "ButtonFinish";
-    public float cooldownTime = 0.3f;
+    public float cooldownTime = 0.5f;
     private int countButtonBunClick = 0;
 
     private bool isCooldownActive;

@@ -197,13 +197,14 @@ public class OrderController : MonoBehaviour
         {
             totalValue += sandwichValue;
             Debug.Log("Order completed successfully! Total value: $" + totalValue.ToString("F2"));
-            totalValueText.text = "$ " + totalValue.ToString("F2");
+            totalValueText.text = totalValue.ToString("F2", new System.Globalization.CultureInfo("en-US"));
         }
         else
         {
             totalValue -= sandwichValue;
+            totalValue = Mathf.Max(totalValue, 0); // Garante que o valor mínimo seja zero
             Debug.Log("Order is incorrect. Please check the ingredients and order.");
-            totalValueText.text = "$ " + totalValue.ToString("F2");
+            totalValueText.text = totalValue.ToString("F2", new System.Globalization.CultureInfo("en-US"));
         }
 
         ingredientSpawner.DestroyAllIngredients();

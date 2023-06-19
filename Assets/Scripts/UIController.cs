@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
 
     public GameObject hotbar;
     public GameObject endScreen;
+    public GameObject arrowIndicator;
 
     public float countdownTimeToStart = 3f; // Tempo da contagem regressiva em segundos
     public float timerToEnd = 120f;// Tempo da contagem regressiva em segundos para o fim da partida
@@ -20,6 +21,7 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        arrowIndicator.SetActive(true);
         hotbar.SetActive(false);
         StartCoroutine(StartCountdownToStartTheScene());
     }
@@ -64,11 +66,16 @@ public class UIController : MonoBehaviour
             currentTime--;
 
             countdownToEndText.text = currentTime.ToString();
+
+            if (currentTime <= 100f) 
+            {
+                arrowIndicator.SetActive(false);
+            }
         }
 
         endScreen.SetActive(true);
         
-        scoreText.text = "$ " + orderController.totalValue.ToString("F2");
+        scoreText.text = "Total: $ " + orderController.totalValue.ToString("F2", new System.Globalization.CultureInfo("en-US"));
 
         hotbar.SetActive(false);
     }
