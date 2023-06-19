@@ -14,9 +14,9 @@ public class OrderController : MonoBehaviour
     public GameObject spawner;
 
     private IngredientSpawner ingredientSpawner;
+
     [SerializeField]
     [Space]
-    
     public UIController uiController;
     public ButtonController buttonController;
 
@@ -223,6 +223,7 @@ public class OrderController : MonoBehaviour
         // Verifica se a quantidade de ingredientes selecionados é diferente da quantidade necessária para o sanduíche
         if (selectedIngredients.Count != sandwich.ingredients.Length)
         {
+            // Exibe uma mensagem de erro no UIController
             uiController.ShowErrorMessage("Incorrect quantity of ingredients.");
             return false;
         }
@@ -233,6 +234,7 @@ public class OrderController : MonoBehaviour
             // Verifica se a ordem dos ingredientes está correta
             if (selectedIngredients[i] != sandwich.ingredients[i])
             {
+                // Exibe uma mensagem de erro no UIController
                 uiController.ShowErrorMessage("Incorrect ingredients");
                 return false;
             }

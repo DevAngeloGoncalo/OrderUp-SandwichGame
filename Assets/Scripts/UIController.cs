@@ -6,17 +6,26 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    [SerializeField]
+    [Header("Controllers")]
     public OrderController orderController;
     public ButtonController buttonController;
 
+    [SerializeField]
+    [Header("UI Objects")]
     public GameObject hotbar;
     public GameObject endScreen, instructionScreen;
     public GameObject arrowIndicator;
 
-    public float countdownTimeToStart = 3f; // Tempo da contagem regressiva em segundos
-    public float timerToEnd = 120f;// Tempo da contagem regressiva em segundos para o fim da partida
-    public Text countdownToStartText; // Referência ao objeto Text onde o texto da contagem regressiva será exibido
-    public Text countdownToEndText; // Referência ao objeto Text onde o texto da contagem regressiva será exibido
+    [SerializeField]
+    [Header("Countdown Settings")]
+    public float countdownTimeToStart = 3f; 
+    public float timerToEnd = 120f;
+    public Text countdownToStartText; 
+    public Text countdownToEndText; 
+
+    [SerializeField]
+    [Space]
     public Text scoreText;
     public Text errorText;
 
@@ -34,6 +43,7 @@ public class UIController : MonoBehaviour
            
     }
 
+    // Inicia a contagem regressiva para começar a cena
     private IEnumerator StartCountdownToStartTheScene()
     {
         float currentTime = countdownTimeToStart;
@@ -58,6 +68,7 @@ public class UIController : MonoBehaviour
         StartCoroutine(StartCoutdownToEndTheScene());
     }
 
+    // Inicia a contagem regressiva para o fim da partida
     private IEnumerator StartCoutdownToEndTheScene()
     {
         float currentTime = timerToEnd;
@@ -69,25 +80,27 @@ public class UIController : MonoBehaviour
 
             countdownToEndText.text = currentTime.ToString();
 
+            // Desativa o indicador de seta quando o tempo restante for menor ou igual a 100 segundos
             if (currentTime <= 100f) 
             {
                 arrowIndicator.SetActive(false);
             }
         }
-
+        // Ativa a tela de fim do jogo
         endScreen.SetActive(true);
-        
+        // Exibe a pontuação tota
         scoreText.text = "Total: $ " + orderController.totalValue.ToString("F2", new System.Globalization.CultureInfo("en-US"));
-
         hotbar.SetActive(false);
     }
 
+    // Sai do jogo
     public void ExitGame()
     {
         buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
         Application.Quit();
     }
 
+    // Inicia a cena do jogo
     public void StartScene()
     {
         buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
@@ -95,6 +108,7 @@ public class UIController : MonoBehaviour
         
     }
 
+    // Fecha as instruções e inicia a contagem regressiva para começar a cena
     public void CloseInstructions()
     {
         buttonController.audioSource.PlayOneShot(buttonController.buttonSound);
@@ -102,21 +116,20 @@ public class UIController : MonoBehaviour
         StartCoroutine(StartCountdownToStartTheScene());
     }
 
+    // Exibe uma mensagem de erro no UI
     public void ShowErrorMessage(string message)
     {
         
         errorText.text = message;
         errorText.gameObject.SetActive(true);
 
-        
         StartCoroutine(HideErrorMessage());
     }
 
+    // Esconde a mensagem de erro
     private IEnumerator HideErrorMessage()
     {
         yield return new WaitForSeconds(2f);
-
-        // Hide the error text
         errorText.gameObject.SetActive(false);
     }
 }

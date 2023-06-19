@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Classe que define um objeto de sanduíche para o jogo
 [CreateAssetMenu(fileName = "New Sandwich", menuName = "Sandwich Game/SandwichObject")]
 public class SandwichObject : ScriptableObject
 {

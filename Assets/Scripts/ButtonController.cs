@@ -4,12 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ButtonController : MonoBehaviour
 {
+    [SerializeField]
+    [Header("Controllers")]
     public OrderController orderController;
     public UIController uiController;
 
+    [SerializeField]
+    [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip buttonSound;
 
+    [SerializeField]
+    [Header("Buttons")]
     public Button buttonSesameSeedBun;
     public Button buttonHamburger100g;
     public Button buttonHamburger200g;
@@ -26,17 +32,17 @@ public class ButtonController : MonoBehaviour
     public Button buttonSpicyMayoSauce;
     public Button buttonRedCabbage;
     public Button buttonFriedOnion;
-
     public Button buttonCloseInstructions;
     public Button buttonFinishOrder;
     public Button buttonRestartGame;
     public Button buttonExitGame;
 
+    [SerializeField]
+    [Space]
     public string cooldownButtonTag = "CooldownButton";
     public string finishButtonTag = "ButtonFinish";
     public float cooldownTime = 0.5f;
     private int countButtonBunClick = 0;
-
     private bool isCooldownActive;
 
     private void Start()
@@ -52,6 +58,7 @@ public class ButtonController : MonoBehaviour
 
         buttonFinishOrder.interactable = false;
 
+        // Adicione os listeners aos botões
         buttonSesameSeedBun.onClick.AddListener(OnButtonBunClick);
         buttonHamburger100g.onClick.AddListener(orderController.AddHamburger100g);
         buttonHamburger200g.onClick.AddListener(orderController.AddHamburger200g);
@@ -68,12 +75,12 @@ public class ButtonController : MonoBehaviour
         buttonSpicyMayoSauce.onClick.AddListener(orderController.AddSpicyMayoSauce);
         buttonRedCabbage.onClick.AddListener(orderController.AddRedCabbage);
         buttonFriedOnion.onClick.AddListener(orderController.AddFriedOnion);
-
         buttonCloseInstructions.onClick.AddListener(uiController.CloseInstructions);
         buttonFinishOrder.onClick.AddListener(FinishOrder);
         buttonRestartGame.onClick.AddListener(uiController.StartScene);
         buttonExitGame.onClick.AddListener(uiController.ExitGame);
 
+        // Encontre os botões com a tag "CooldownButton" e adicione os listeners
         GameObject[] buttons = GameObject.FindGameObjectsWithTag(cooldownButtonTag);
         foreach (GameObject button in buttons)
         {
@@ -88,6 +95,7 @@ public class ButtonController : MonoBehaviour
 
     }
 
+    // Método Finalizar Pedido
     void FinishOrder()
     {
         // Reproduza o som do botão
@@ -103,7 +111,7 @@ public class ButtonController : MonoBehaviour
     {
         if (isCooldownActive)
         {
-            return;
+            return; // Se o cooldown estiver ativo, não execute nada
         }
 
         ApplyCooldownToButtons();
@@ -114,13 +122,15 @@ public class ButtonController : MonoBehaviour
         // Reproduza o som do botão
         audioSource.PlayOneShot(buttonSound);
 
+        // Incrementa o contador de cliques no botão de pão
         countButtonBunClick++;
 
         if (isCooldownActive)
         {
-            return;
+            return; // Se o cooldown estiver ativo, não execute nada
         }
 
+        // Verifica se o botão foi pressionado 2 vezes
         if (countButtonBunClick == 2)
         {
             DisableCooldownButtons();
@@ -135,15 +145,22 @@ public class ButtonController : MonoBehaviour
             buttonFinishOrder.interactable = false;
 
         }
+
+        // Adiciona o pão de gergelim ao pedido
         orderController.AddSesameSeedBun();
     }
 
+    // Método que desativa os botões com TAG CooldownButtons
+    // É chamado quando o jogo é iniciado, ao concluir pedido ou na inserção do segundo pedaço de pão
     public void DisableCooldownButtons()
     {
+        // Encontra todos os botões com a tag de cooldown
         GameObject[] cooldownButtons = GameObject.FindGameObjectsWithTag(cooldownButtonTag);
 
+        // Percorre cada botão encontrado
         foreach (GameObject buttonObject in cooldownButtons)
         {
+            // Obtém o componente Button do botão
             Button button = buttonObject.GetComponent<Button>();
             if (button != null)
             {
@@ -155,12 +172,16 @@ public class ButtonController : MonoBehaviour
         }
     }
 
+    // Aplica o cooldown aos botões
     private void ApplyCooldownToButtons()
     {
+        // Percorre cada botão encontrado
         GameObject[] cooldownButtons = GameObject.FindGameObjectsWithTag(cooldownButtonTag);
 
+        // Percorre cada botão encontrado
         foreach (GameObject buttonObject in cooldownButtons)
         {
+            // Obtém o componente Button do botão
             Button button = buttonObject.GetComponent<Button>();
             if (button != null)
             {
@@ -170,17 +191,22 @@ public class ButtonController : MonoBehaviour
                 button.colors = colors;
             }
         }
-        
+
+        // Inicia a rotina de cooldown
         StartCoroutine(StartCooldown());
     }
-        
+
+    // Inicia o cooldown dos botões após um determinado tempo, reativando a interação e restaurando a cor original dos botões.
     private IEnumerator StartCooldown()
     {
+        // Encontra todos os botões com a tag de cooldown
         GameObject[] cooldownButtons = GameObject.FindGameObjectsWithTag(cooldownButtonTag);
+        // Aguarda o tempo de cooldown
         yield return new WaitForSeconds(cooldownTime);
-
+        // Percorre cada botão encontrado
         foreach (GameObject buttonObject in cooldownButtons)
-        {
+        {   
+            // Obtém o componente Button do botão atual
             Button button = buttonObject.GetComponent<Button>();
             if (button != null)
             {
