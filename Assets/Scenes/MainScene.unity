@@ -482,6 +482,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1510861295, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 630.456
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510861295, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -106
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510861295, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510861298, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_Text
+      value: 'Drag to reveal
+
+        additional ingredients'
+      objectReference: {fileID: 0}
     - target: {fileID: 1551994571, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -810,6 +828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3858742336521681937, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3858742336521681941, guid: caf24bb196fd06c44b444d0729ff720d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -983,6 +1005,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6928084300653291550, guid: 586402b10517d2f42a70ae8ac452b53c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3399998
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928084300653291550, guid: 586402b10517d2f42a70ae8ac452b53c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928084301588514120, guid: 586402b10517d2f42a70ae8ac452b53c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928084301588514120, guid: 586402b10517d2f42a70ae8ac452b53c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6928084302659523790, guid: 586402b10517d2f42a70ae8ac452b53c, type: 3}
       propertyPath: m_Name
       value: Furniture
