@@ -27,7 +27,6 @@ Order Up é um jogo divertido e viciante de montar sanduíches em 2D com um enca
 Faça o download ou jogue pelo navegador através do link abaixo:
    - [Order Up](https://devsamurai.itch.io/order-up)
 
-
 ## Suporte
 
 Se você encontrar algum problema ou tiver alguma dúvida, entre em contato comigo.
