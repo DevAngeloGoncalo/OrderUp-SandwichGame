@@ -14,12 +14,13 @@ Order Up é um jogo divertido e viciante de montar sanduíches em 2D com um enca
 
 ## Capturas de Tela
 
-![Screenshot 1]([link_para_screenshot_1.png](https://img.itch.zone/aW1hZ2UvMjEyNTY4NC8xMjUyMjEwNC5wbmc=/original/Ij%2BMri.png))
-![Screenshot 2]([link_para_screenshot_2.png](https://img.itch.zone/aW1hZ2UvMjEyNTY4NC8xMjUyMjEwMi5wbmc=/original/Qy4%2FqW.png))
-![Screenshot 3]([link_para_screenshot_3.png](https://img.itch.zone/aW1hZ2UvMjEyNTY4NC8xMjUyMjEwNy5wbmc=/original/zTTJ2J.png))
-![Screenshot 4]([link_para_screenshot_4.png](https://img.itch.zone/aW1hZ2UvMjEyNTY4NC8xMjUyMjEwMy5wbmc=/original/KKm2TX.png))
-![Screenshot 5]([link_para_screenshot_5.png](https://img.itch.zone/aW1hZ2UvMjEyNTY4NC8xMjUyMjEwNS5wbmc=/original/SL9cOY.png))
-![Screenshot 5]([link_para_screenshot_5.png](https://img.itch.zone/aW1hZ2UvMjEyNTY4NC8xMjUyMjEwNi5wbmc=/original/VfA%2Fzr.png))
+![Screenshot 1](https://img.itch.zone/aW1hZ2UvMjEyNTY4NC8xMjUyMjEwNC5wbmc=/original/Ij%2BMri.png)
+![Screenshot 2](https://img.itch.zone/aW1hZ2UvMjEyNTY4NC8xMjUyMjEwMi5wbmc=/original/Qy4%2FqW.png)
+![Screenshot 3](https://img.itch.zone/aW1hZ2UvMjEyNTY4NC8xMjUyMjEwNy5wbmc=/original/zTTJ2J.png)
+![Screenshot 4](https://img.itch.zone/aW1hZ2UvMjEyNTY4NC8xMjUyMjEwMy5wbmc=/original/KKm2TX.png)
+![Screenshot 5](https://img.itch.zone/aW1hZ2UvMjEyNTY4NC8xMjUyMjEwNS5wbmc=/original/SL9cOY.png)
+![Screenshot 6](https://img.itch.zone/aW1hZ2UvMjEyNTY4NC8xMjUyMjEwNi5wbmc=/original/VfA%2Fzr.png)
+
 
 ## Como Jogar
 
@@ -29,6 +30,6 @@ Faça o download ou jogue pelo navegador através do link abaixo:
 
 ## Suporte
 
-Se você encontrar algum problema ou tiver alguma dúvida, entre em contato com nossa equipe de suporte em support@orderup.com.
+Se você encontrar algum problema ou tiver alguma dúvida, entre em contato comigo.
 
 Divirta-se jogando!
